@@ -4,10 +4,11 @@ import { play } from "../sounds.ts";
 import { TINTS } from "../textures.ts";
 import { Backdrop } from "./backdrop.ts";
 import { FadingScene } from "./fade.ts";
+import type { RunTotals } from "./play.ts";
 
 /** What the play scene hands the cutscene when the Warden falls. */
 export interface CutsceneData {
-  run: { score: number; kills: number; hits: number; continues: number };
+  run: RunTotals;
   afterDemo: boolean;
 }
 
