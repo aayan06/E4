@@ -17,7 +17,6 @@ import { makeTextures, TINTS } from "./textures.ts";
 import { Backdrop } from "./backdrop.ts";
 import {
   BOSS_NAME,
-  ENEMIES,
   type EnemyKind,
   placeWave,
   ROUTE,
@@ -418,23 +417,7 @@ export class GameScene extends Phaser.Scene implements Arena {
   }
 
   private spawnEnemy(kind: EnemyKind, x: number, y: number, side: number) {
-    const stats = ENEMIES[kind];
-    this.enemies.push(
-      new ShmupPrefabSprite(
-        this,
-        x,
-        y,
-        kind,
-        stats.hp,
-        stats.score,
-        stats.radius,
-        stats.dropChance,
-        stats.canShoot,
-        false,
-        x,
-        side,
-      ),
-    );
+    this.enemies.push(new ShmupPrefabSprite(this, kind, x, y, side));
   }
 
   private startBoss(): void {
